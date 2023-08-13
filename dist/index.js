@@ -15,8 +15,9 @@ app.use((0, cors_1.default)());
 app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({ schema: GrahqlHandler_1.default, graphiql: true }));
 const StartServer = () => {
     try {
-        (0, MongoDbconnection_1.MongoDbconnections)(process.env.MongoDbUrl ? process.env.MongoDbUrl : "").then(() => {
-            app.listen(5000, () => {
+        const url = `mongodb+srv://dummyuser:${process.env.MongoDbPassword}@cluster0.4zinq1l.mongodb.net/FindYourJobs?retryWrites=true&w=majority`;
+        (0, MongoDbconnection_1.MongoDbconnections)(url).then(() => {
+            app.listen(process.env.Port, () => {
                 console.log("Server Started");
             });
         });
