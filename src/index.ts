@@ -10,7 +10,7 @@ app.use(cors())
 app.use('/graphql',graphqlHTTP({schema:schema,graphiql:true}))
 const StartServer=()=>{
     try {
-        const url=`mongodb+srv://dummyuser:${process.env.MongoDbPassword}@cluster0.4zinq1l.mongodb.net/FindYourJobs?retryWrites=true&w=majority`
+        const url=`mongodb+srv://dummyuser:${process.env.MongoDbPassword}@cluster0.4zinq1l.mongodb.net/FindYourJobs`
         MongoDbconnections(url).then(()=>{
             app.listen(process.env.Port,()=>{
                 console.log("Server Started")
